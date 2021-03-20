@@ -35,7 +35,6 @@ def create_model(hparams):
                          linear_dim=hparams.mel_dim,
                          max_decoder_steps=hparams.max_decoder_steps,
                          stop_threshold=hparams.stop_threshold,
-                         r=hparams.r,
                          use_memory_mask=True,
                          model_cfg=model_cfg
                          )
@@ -48,7 +47,6 @@ def create_model(hparams):
                           mel_dim=hparams.mel_dim,
                           max_decoder_steps=hparams.max_decoder_steps,
                           stop_threshold=hparams.stop_threshold,
-                          r=hparams.r,
                           use_memory_mask=True,
                           model_cfg=model_cfg
                           )
@@ -182,6 +180,7 @@ def train(output_dir, log_dir, checkpoint_path, warm_start, hparams):
 
     # ================ MAIN TRAINNIG LOOP! ===================
     model.train()
+    model.r = hparams.r
     for epoch in range(epoch_offset, hparams.epochs):
         print("Epoch: {}".format(epoch))
         for i, batch in enumerate(train_loader):
