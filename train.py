@@ -26,7 +26,6 @@ def create_model(hparams):
                          linear_dim=hparams.mel_dim,
                          max_decoder_steps=hparams.max_decoder_steps,
                          stop_threshold=hparams.stop_threshold,
-                         use_memory_mask=True,
                          model_cfg=model_cfg
                          )
         # Loss criterion
@@ -38,7 +37,6 @@ def create_model(hparams):
                           mel_dim=hparams.mel_dim,
                           max_decoder_steps=hparams.max_decoder_steps,
                           stop_threshold=hparams.stop_threshold,
-                          use_memory_mask=True,
                           model_cfg=model_cfg
                           )
         # Loss criterion

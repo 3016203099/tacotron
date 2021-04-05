@@ -225,11 +225,10 @@ class Decoder(nn.Module):
 
 class Tacotron2(nn.Module):
     def __init__(self, model_cfg, n_vocab, embed_dim=512, mel_dim=80,
-                 max_decoder_steps=1000, stop_threshold=0.5, use_memory_mask=False):
+                 max_decoder_steps=1000, stop_threshold=0.5):
         super(Tacotron2, self).__init__()
 
         self.mel_dim = mel_dim
-        self.use_memory_mask = use_memory_mask
 
         # Embedding
         self.embedding = nn.Embedding(n_vocab, embed_dim)
@@ -283,11 +282,6 @@ class Tacotron2(nn.Module):
 
         # (B, T, embed_dim)
         encoder_outputs = self.encoder(inputs)
-
-        if self.use_memory_mask:
-            memory_lengths = input_lengths
-        else:
-            memory_lengths = None
 
         # (B, T, mel_dim)
         mel_outputs, stop_tokens, alignments = self.decoder(
