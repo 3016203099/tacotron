@@ -7,7 +7,7 @@ class Hparams:
         # Experiment Parameters        #
         ################################
         self.epochs = 500
-        self.iters_per_checkpoint = 1000
+        self.iters_per_checkpoint = 10000
         self.iters_per_validation = 1000
         self.seed = 1234
         self.dynamic_loss_scaling = True
@@ -20,8 +20,8 @@ class Hparams:
         ################################
         # Data Parameters              #
         ################################
-        self.training_files = "DATASET/train.csv.txt"
-        self.validation_files = "DATASET/val.csv.txt"
+        self.training_files = "preprocessed_data/LJSpeech/metadata.txt"
+        self.validation_files = "preprocessed_data/LJSpeech/val.txt"
         self.text_cleaners = ["basic_cleaners"]
         self.symbols_lang = "en"  # en: English characters; py: Chinese Pinyin symbols
 

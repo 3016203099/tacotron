@@ -228,9 +228,9 @@ def train(output_dir, log_dir, checkpoint_path, warm_start, hparams):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-o', '--output_dir', type=str, default='out',
+    parser.add_argument('-o', '--output_dir', type=str, default='output/ckpt/',
                         help='directory to save checkpoints')
-    parser.add_argument('-l', '--log_dir', type=str, default='log',
+    parser.add_argument('-l', '--log_dir', type=str, default='output/log/',
                         help='directory to save tensorboard logs')
     parser.add_argument('-c', '--checkpoint_path', type=str, default=None,
                         required=False, help='checkpoint path')
